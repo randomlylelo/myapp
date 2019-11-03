@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 /* 
 void main(){
   // in material.dart
@@ -10,23 +12,23 @@ void main(){
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp>{
-  var questionIndex = 0;
+// _ - turns public class to private
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
   // A function but is called method
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex++;
+      _questionIndex++;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -40,24 +42,30 @@ class MyAppState extends State<MyApp>{
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(children: <Widget>[
-          Text(questions[questionIndex]),
-          RaisedButton(
-            child: Text('Answer 1'),
-            onPressed: answerQuestion, // Passing the refrence to onPressed bc onPressed wants function not return value of the function.
-          ),
-          RaisedButton(
-            child: Text('Answer 2'),
-            onPressed: () => print('Shorthand for function, this is also called a anonymous function (function with no name)'),
-          ),
-          RaisedButton(
-            child: Text('Answer 3'),
-            onPressed: (){
-              // This is used for multi line functions, another anonymous function bc it doesn't have a name.
-              print('Another shorthand way :)');
-            },
-          ),
-        ]),
+        body: Column(
+          children: <Widget>[
+            Question(
+              questions[_questionIndex],
+            ),
+            RaisedButton(
+              child: Text('Answer 1'),
+              onPressed:
+                  _answerQuestion, // Passing the refrence to onPressed bc onPressed wants function not return value of the function.
+            ),
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: () => print(
+                  'Shorthand for function, this is also called a anonymous function (function with no name)'),
+            ),
+            RaisedButton(
+              child: Text('Answer 3'),
+              onPressed: () {
+                // This is used for multi line functions, another anonymous function bc it doesn't have a name.
+                print('Another shorthand way :)');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
