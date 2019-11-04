@@ -61,28 +61,6 @@ class _MyAppState extends State<MyApp> {
                 .map((answer) {
               return Answer(_answerQuestion, answer);
             }).toList(),
-
-            // Answer(_answerQuestion),
-            // Answer(_answerQuestion),
-            // Answer(_answerQuestion),
-            // Ctrl + K + C to comment, Ctrl + K + U to uncomment
-            // RaisedButton(
-            //   child: Text('Answer 1'),
-            //   onPressed:
-            //       _answerQuestion, // Passing the refrence to onPressed bc onPressed wants function not return value of the function.
-            // ),
-            // RaisedButton(
-            //   child: Text('Answer 2'),
-            //   onPressed: () => print(
-            //       'Shorthand for function, this is also called a anonymous function (function with no name)'),
-            // ),
-            // RaisedButton(
-            //   child: Text('Answer 3'),
-            //   onPressed: () {
-            //     // This is used for multi line functions, another anonymous function bc it doesn't have a name.
-            //     print('Another shorthand way :)');
-            //   },
-            // ),
           ],
         ),
       ),
